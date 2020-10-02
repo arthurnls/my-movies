@@ -36,6 +36,30 @@
 
 ### 1.3. []	2 AR Models
 
+- rails g model type name:string
+- rails g model genre name:string
+- rails g model director name:string
+- rails g model actor name:string
+- rails g model user name:string age:string
+- rails g model netflix_title title:string description:text date_added:date release_year:integer rating:float duration:string type:references
+- rails g model movie title:string description:text release_date:date release_year:integer duration:integer average_vote:integer votes:integer
+
+- rails g migration CreateUserNetflix_titles netflix_title:references user:references
+- rails g migration CreateUserMovies movie:references user:references
+
+- rails g migration CreateNetflix_titlesGenres genre:references netflix_title:references
+- rails g migration CreateNetflix_titlesActors actor:references netflix_title:references
+- rails g migration CreateNetflix_titlesDirectors director:references netflix_title:references
+
+- rails g migration CreateMoviesGenres genre:references movie:references
+- rails g migration CreateMoviesActors actor:references movie:references
+- rails g migration CreateMoviesDirectors director:references movie:references
+
+
+Add to User and Netflix Models:
+has_and_belongs_to_many :users
+has_and_belongs_to_many :netflix_titles
+
 ### 1.3. []	3 AR Models
 
 ### 1.3. []	4+ AR Models
