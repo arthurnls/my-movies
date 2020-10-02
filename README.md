@@ -36,28 +36,41 @@
 
 ### 1.3. []	2 AR Models
 
-- rails g model type name:string
-- rails g model genre name:string
-- rails g model director name:string
-- rails g model actor name:string
-- rails g model user name:string age:string
-- rails g model netflix_title title:string description:text date_added:date release_year:integer rating:float duration:string type:references
-- rails g model movie title:string description:text release_date:date release_year:integer duration:integer average_vote:integer votes:integer
+- rails g model Type name:string
+- rails g model Genre name:string
+- rails g model Director name:string
+- rails g model Actor name:string
+- rails g model User name:string age:string
+- rails g model NetflixTitle title:string description:text date_added:date release_year:integer rating:float duration:string type:references
+- rails g model Movie title:string description:text release_date:date release_year:integer duration:integer average_vote:integer votes:integer
 
-- rails g migration CreateUserNetflix_titles netflix_title:references user:references
-- rails g migration CreateUserMovies movie:references user:references
+- rails g model UserNetflixTitle user:references netflix_title:references
+- rails g model UserMovie user:references movie:references
 
-- rails g migration CreateNetflix_titlesGenres genre:references netflix_title:references
-- rails g migration CreateNetflix_titlesActors actor:references netflix_title:references
-- rails g migration CreateNetflix_titlesDirectors director:references netflix_title:references
+- rails g model NetflixTitleGenre netflix_title:references genre:references
+- rails g model NetflixTitleActor netflix_title:references actor:references
+- rails g model NetflixTitleDirector netflix_title:references director:references
 
-- rails g migration CreateMoviesGenres genre:references movie:references
-- rails g migration CreateMoviesActors actor:references movie:references
-- rails g migration CreateMoviesDirectors director:references movie:references
+- rails g model MovieGenre movie:references genre:references
+- rails g model MovieActor movie:references actor:references
+- rails g model MovieDirector movie:references director:references
 
 
-Add to User and Netflix Models:
-has_and_belongs_to_many :users
+
+
+Add to User Model:
+has_many :user_netflix_titles
+has_many :netflix_titles, :through => :user_netflix_titles
+
+Add to UserNetflixTitle Model:
+belongs_to :user
+belongs_to :netflix_title
+
+Add to NetflixTitle Model:
+has_many :user_netflix_titles
+has_many :users, :through => :user_netflix_titles
+
+
 has_and_belongs_to_many :netflix_titles
 
 ### 1.3. []	3 AR Models
