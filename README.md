@@ -26,30 +26,55 @@
             - [Directors] This will be populated from both datasets, and have a many to many relationship to both [NetflixTitles] and [Movies]
             - [Actors] This will be populated from both datasets, and have a many to many relationship to both [NetflixTitles] and [Movies]
             - [Users] This will be populated using faker to create a list of users, each with their own list of [watched_movies] [watched_netflix]. Those will be a many to many relationship to their respective tables.
+
 1.2. []	Database ERD
+
 1.3. []	2 AR Models
+
 1.3. []	3 AR Models
+
 1.3. []	4+ AR Models
+
 1.4. []	One to Many
+
 1.5. []	Many to Many
+
 1.6. []	Validations
+
 1.7. []	1 Data Source
+
 1.7. []	2 Data Sources
+
 1.7. []	3+ Data Sources
+
 2.1. []	About Page
+
 2.2. []	Menu
+
 3.1. []	Collection Navigation
+
 3.2. []	Member Pages
+
 3.3. []	Multi-model Data on Member Pages
+
 3.4. []	Hierarchical Collection Navigation
+
 3.5. []	Pagination
+
 3.6. []	Mapping
+
 4.1. []	Simple Search
+
 4.2. []	Hierarchical Search
+
 5.1. []	Valid HTML
+
 5.2. []	ERB Conditional
+
 5.3. []	Bootstrap Grid
+
 6.1. []	Git and Github
+
 6.2. []	20 Commits
 
 --- 
