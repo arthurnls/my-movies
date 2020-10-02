@@ -5,7 +5,7 @@ class CreateNetflixTitles < ActiveRecord::Migration[6.0]
       t.text :description
       t.date :date_added
       t.integer :release_year
-      t.float :rating
+      t.string :rating
       t.string :duration
       t.references :type, null: false, foreign_key: true
 

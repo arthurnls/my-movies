@@ -1,4 +1,7 @@
 class Type < ApplicationRecord
-  # IS THIS NECESSARY??
+  # This stores Netflix Titles types (movie, show)
   has_many :netflix_titles
+  
+  # Validation
+  validates :name, presence: true
 end

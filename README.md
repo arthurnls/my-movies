@@ -16,17 +16,17 @@
 - Users Data
     - Use Faker to create fake users data, and setup users watched movies and programs.
 - Description:
-    - First I will use Netflix Titles dataset. From that, I will use the columns [type] [title] [director] [cast] [date_added] [release_year] [rating] [duration] [listed_in] [description]
-    - Second data set is IMDB Movies. from that I will use the columns [title] [year] [date_published] [genre] [duration] [director] [actors] [description] [avg_vote] [votes]
-    - The third data set will be a list of users created with Faker. It will have [name] [age] [watched_movies] [watched_netflix]
+    - First I will use Netflix Titles dataset. From that, I will use the columns [**type**] [**title**] [**director**] [**cast**] [**date_added**] [**release_year**] [**rating**] [**duration**] [**listed_in**] [**description**]
+    - Second data set is IMDB Movies. from that I will use the columns [**title**] [**year**] [**date_published**] [**genre**] [**duration**] [**director**] [**actors**] [**description**] [**avg_vote**] [**votes**]
+    - The third data set will be a list of users created with Faker. It will have [**name**] [**age**] [**watched_movies**] [**watched_netflix**]
     - The database tables will be
-        - [NetflixTitles] This will be defined with the Netflix Titles dataset. There will be a [genre] column extracted from [listed_in] dataset column. [genre] [director] and [actor] will be a many to many relationship.
-        - [Type] This is the type of title from netflix (example "Movie", "Show"). It has a one to many relationship with [NetflixTitles] one title can have only one type, but a type can have many titles.
-        - [Movies] This will be defined with the IMDB Movies dataset. [genre] [director] and [actor] will be a many to many relationship.
-        - [Genre] This will be populated from both datasets, and have a many to many relationship to both [NetflixTitles] and [Movies]
-        - [Directors] This will be populated from both datasets, and have a many to many relationship to both [NetflixTitles] and [Movies]
-        - [Actors] This will be populated from both datasets, and have a many to many relationship to both [NetflixTitles] and [Movies]
-        - [Users] This will be populated using faker to create a list of users, each with their own list of [watched_movies] [watched_netflix]. Those will be a many to many relationship to their respective tables.
+        - [**NetflixTitles**] This will be defined with the Netflix Titles dataset. There will be a [**genre**] column extracted from [**listed_in**] dataset column. [**genre**] [**director**] and [**actor**] will be a many to many relationship.
+        - [**Type**] This is the type of title from netflix (example "Movie", "Show"). It has a one to many relationship with [**NetflixTitles**] one title can have only one type, but a type can have many titles.
+        - [**Movies**] This will be defined with the IMDB Movies dataset. [**genre**] [**director**] and [**actor**] will be a many to many relationship.
+        - [**Genre**] This will be populated from both datasets, and have a many to many relationship to both [**NetflixTitles**] and [**Movies**]
+        - [**Directors**] This will be populated from both datasets, and have a many to many relationship to both [**NetflixTitles**] and [**Movies**]
+        - [**Actors**] This will be populated from both datasets, and have a many to many relationship to both [**NetflixTitles**] and [**Movies**]
+        - [**Users**] This will be populated using faker to create a list of users, each with their own list of [**watched_movies**] [**watched_netflix**]. Those will be a many to many relationship to their respective tables.
 
 ### 1.2. [x]	Database ERD
 
@@ -34,15 +34,15 @@
     <img src="./docs/MyMoviesERD.png">
 </div>
 
-### 1.3. []	2 AR Models
+### 1.3. [x]	4+ AR Models
 
 - rails g model Type name:string
 - rails g model Genre name:string
 - rails g model Director name:string
 - rails g model Actor name:string
 - rails g model User name:string age:string
-- rails g model NetflixTitle title:string description:text date_added:date release_year:integer rating:float duration:string type:references
-- rails g model Movie title:string description:text release_date:date release_year:integer duration:integer average_vote:integer votes:integer
+- rails g model NetflixTitle title:string description:text date_added:date release_year:integer rating:string duration:string type:references
+- rails g model Movie title:string description:text release_date:date release_year:integer duration:integer average_vote:float votes:integer
 
 - rails g model UserNetflixTitle user:references netflix_title:references
 - rails g model UserMovie user:references movie:references
@@ -55,28 +55,7 @@
 - rails g model MovieActor movie:references actor:references
 - rails g model MovieDirector movie:references director:references
 
-
-
-
-Add to User Model:
-has_many :user_netflix_titles
-has_many :netflix_titles, :through => :user_netflix_titles
-
-Add to UserNetflixTitle Model:
-belongs_to :user
-belongs_to :netflix_title
-
-Add to NetflixTitle Model:
-has_many :user_netflix_titles
-has_many :users, :through => :user_netflix_titles
-
-
-has_and_belongs_to_many :netflix_titles
-
-### 1.3. []	3 AR Models
-
-### 1.3. []	4+ AR Models
-
+, optional: true
 ### 1.4. []	One to Many
 
 ### 1.5. []	Many to Many

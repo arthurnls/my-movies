@@ -6,7 +6,7 @@ class CreateMovies < ActiveRecord::Migration[6.0]
       t.date :release_date
       t.integer :release_year
       t.integer :duration
-      t.integer :average_vote
+      t.float :average_vote
       t.integer :votes
 
       t.timestamps
