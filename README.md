@@ -55,7 +55,7 @@
 - rails g model MovieActor movie:references actor:references
 - rails g model MovieDirector movie:references director:references
 
-, optional: true
+
 ### 1.4. []	One to Many
 
 ### 1.5. []	Many to Many
