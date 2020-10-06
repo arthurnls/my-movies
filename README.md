@@ -36,37 +36,71 @@
 
 ### 1.3. [x]	4+ AR Models
 
-- rails g model Type name:string
-- rails g model Genre name:string
-- rails g model Director name:string
-- rails g model Actor name:string
-- rails g model User name:string age:string
-- rails g model NetflixTitle title:string description:text date_added:date release_year:integer rating:string duration:string type:references
-- rails g model Movie title:string description:text release_date:date release_year:integer duration:integer average_vote:float votes:integer
+- Commands used to generate the Models:
+    - rails g model Type name:string
+    - rails g model Genre name:string
+    - rails g model Director name:string
+    - rails g model Actor name:string
+    - rails g model User name:string age:string
+    - rails g model NetflixTitle title:string description:text date_added:date release_year:integer rating:string duration:string type:references
+    - rails g model Movie title:string description:text release_date:date release_year:integer duration:integer average_vote:float votes:integer
+- Relationship Models
+    - rails g model UserNetflixTitle user:references netflix_title:references
+    - rails g model UserMovie user:references movie:references
+    - rails g model NetflixTitleGenre netflix_title:references genre:references
+    - rails g model NetflixTitleActor netflix_title:references actor:references
+    - rails g model NetflixTitleDirector netflix_title:references director:references
+    - rails g model MovieGenre movie:references genre:references
+    - rails g model MovieActor movie:references actor:references
+    - rails g model MovieDirector movie:references director:references
 
-- rails g model UserNetflixTitle user:references netflix_title:references
-- rails g model UserMovie user:references movie:references
+### 1.4. [x]	One to Many
 
-- rails g model NetflixTitleGenre netflix_title:references genre:references
-- rails g model NetflixTitleActor netflix_title:references actor:references
-- rails g model NetflixTitleDirector netflix_title:references director:references
+- There is a One to Many relationship from Type model to NetflixMovies model.
 
-- rails g model MovieGenre movie:references genre:references
-- rails g model MovieActor movie:references actor:references
-- rails g model MovieDirector movie:references director:references
+### 1.5. [x]	Many to Many
 
+- There are Many to Many relationships from the following Models:
+    - User
+    - Genre
+    - Director
+    - Actor
+- To both main models:
+    - NetflixTitle
+    - Movie
+- Join tables:
+    - UserNetflixTitle
+    - UserMovie
+    - NetflixTitleGenre
+    - NetflixTitleActor
+    - NetflixTitleDirector
+    - MovieGenre
+    - MovieActor
+    - MovieDirector
 
-### 1.4. []	One to Many
+### 1.6. [x]	Validations
 
-### 1.5. []	Many to Many
+- Added validation to all Models.
+    - presense: true => when necessary
+    - numericality: { only_integer: true } => For integer only values
 
-### 1.6. []	Validations
+### 1.7. [x]	3+ Data Sources
 
-### 1.7. []	1 Data Source
+- seed.rb was updated to pull data from 3 data sources.
+    - File: `IMDb movies.csv`
+    - File: `netflix_titles.csv`
+    - Faker to create users data
+- Database tables were populated from data extracted from those files
 
-### 1.7. []	2 Data Sources
-
-### 1.7. []	3+ Data Sources
+Output from `rails db:seed`
+```Created 2 Types
+Created 58 Genres
+Created 654 Directors
+Created 2243 Actors
+Created 20 Users
+Created 538 Netflix Titles
+Created 373 Movies
+```
 
 ### 2.1. []	About Page
 
