@@ -102,7 +102,11 @@ Created 538 Netflix Titles
 Created 373 Movies
 ```
 
-### 2.1. []	About Page
+### 2.1. [x]	About Page
+
+- Created about page
+- Added implementation details in about page
+- Added database ERD image
 
 ### 2.2. []	Menu
 
