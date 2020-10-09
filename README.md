@@ -110,11 +110,30 @@ Created 373 Movies
 
 ### 2.2. []	Menu
 
+- There is a menu present on all pages that includes links to two or more locations. (For example, a menu with a link to your homepage and your about page.)
+
 ### 3.1. []	Collection Navigation
+
+- There exists a way for the user to navigate through the data you’ve collected at a high level. (For example, table or list of the entire data collection.)
+- Commands:
+
+```
+rails g controller movies index show
+rails g controller netflix_titles index show
+rails g controller users index show
+rails g controller types index show
+rails g controller genres index show
+rails g controller directors index show
+rails g controller actors index show
+```
 
 ### 3.2. []	Member Pages
 
+- There exists a page for each of the individual entries of the data you have collected to display all the attributes of the collected data point.
+
 ### 3.3. []	Multi-model Data on Member Pages
+
+- On the individual entry pages (3.2) data pulled from associated models is also present. 
 
 ### 3.4. []	Hierarchical Collection Navigation
 
