@@ -125,6 +125,7 @@ rails g controller types index show
 rails g controller genres index show
 rails g controller directors index show
 rails g controller actors index show
+rails g controller pages home about
 ```
 
 ### 3.2. []	Member Pages

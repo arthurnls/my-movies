@@ -2,81 +2,79 @@
 <p>Your web application has an about page that includes the details about your data sources from 1.1 and optionally your ERD from 1.2.</p>
 
 
-<div class="container">
-    <ul>
-        <li>Netflix Titles
-            <ul>
-            <li>Link: https://www.kaggle.com/shivamb/netflix-shows </li>
-            <li>Netflix programs and movies data</li>
-            </ul>
-        </li>
-        <li>IMDB Movies
-            <ul>
-            <li>Link: https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset</li>
-            <li>IMDB Movies data</li>
-            <li>Can be linked together with netflix movies to get some data for directors, production company and/or actors</li>
-            </ul>
-        </li>
-        <li>Users Data
-            <ul>
-            <li>Use Faker to create fake users data, and setup users watched movies and programs.</li>
-            </ul>
-        </li>
-        <li>Description:
-            <ul>
-                <li>First I will use Netflix Titles dataset. From that, I will use the columns
-                    <ul>
-                        <li><b>type</b></li>
-                        <li><b>title</b></li>
-                        <li><b>director</b></li>
-                        <li><b>cast</b></li>
-                        <li><b>date_added</b></li>
-                        <li><b>release_year</b></li>
-                        <li><b>rating</b></li>
-                        <li><b>duration</b></li>
-                        <li><b>listed_in</b></li>
-                        <li><b>description</b></li>
-                    </ul>
-                </li>
-                <li>Second data set is IMDB Movies. from that I will use the columns
-                    <ul>
-                        <li><b>title</b></li>
-                        <li><b>year</b></li>
-                        <li><b>date_published</b></li>
-                        <li><b>genre</b></li>
-                        <li><b>duration</b></li>
-                        <li><b>director</b></li>
-                        <li><b>actors</b></li>
-                        <li><b>description</b></li>
-                        <li><b>avg_vote</b></li>
-                        <li><b>votes</b></li>
-                    </ul>
-                </li>
-                <li>The third data set will be a list of users created with Faker. It will have
-                    <ul>
-                        <li><b>name</b></li>
-                        <li><b>age</b></li>
-                        <li><b>watched_movies</b></li>
-                        <li><b>watched_netflix</b></li>
-                    </ul>
-                </li>
-                <li>The database tables will be
-                    <ul>
-                        <li><b>NetflixTitles</b> -- This will be defined with the Netflix Titles dataset. There will be a <b>"genre"</b> column extracted from <b>"listed_in"</b> dataset column. <b>"genre"</b> <b>"director"</b> and <b>"actor"</b> will be a many to many relationship.</li>
-                        <li><b>Type</b> -- This is the type of title from netflix (example "Movie", "Show"). It has a one to many relationship with <b>"NetflixTitles"</b> one title can have only one type, but a type can have many titles.</li>
-                        <li><b>Movies</b> -- This will be defined with the IMDB Movies dataset. <b>"genre"</b> <b>"director"</b> and <b>"actor"</b> will be a many to many relationship.</li>
-                        <li><b>Genre</b> -- This will be populated from both datasets, and have a many to many relationship to both <b>"NetflixTitles"</b> and <b>"Movies"</b></li>
-                        <li><b>Directors</b> -- This will be populated from both datasets, and have a many to many relationship to both <b>"NetflixTitles"</b> and <b>"Movies"</b></li>
-                        <li><b>Actors</b> -- This will be populated from both datasets, and have a many to many relationship to both <b>"NetflixTitles"</b> and <b>"Movies"</b></li>
-                        <li><b>Users</b> -- This will be populated using faker to create a list of users, each with their own list of <b>"watched_movies"</b> <b>"watched_netflix"</b>. Those will be a many to many relationship to their respective tables.</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</div>
+<ul>
+    <li>Netflix Titles
+        <ul>
+        <li>Link: https://www.kaggle.com/shivamb/netflix-shows </li>
+        <li>Netflix programs and movies data</li>
+        </ul>
+    </li>
+    <li>IMDB Movies
+        <ul>
+        <li>Link: https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset</li>
+        <li>IMDB Movies data</li>
+        <li>Can be linked together with netflix movies to get some data for directors, production company and/or actors</li>
+        </ul>
+    </li>
+    <li>Users Data
+        <ul>
+        <li>Use Faker to create fake users data, and setup users watched movies and programs.</li>
+        </ul>
+    </li>
+    <li>Description:
+        <ul>
+            <li>First I will use Netflix Titles dataset. From that, I will use the columns
+                <ul>
+                    <li><b>type</b></li>
+                    <li><b>title</b></li>
+                    <li><b>director</b></li>
+                    <li><b>cast</b></li>
+                    <li><b>date_added</b></li>
+                    <li><b>release_year</b></li>
+                    <li><b>rating</b></li>
+                    <li><b>duration</b></li>
+                    <li><b>listed_in</b></li>
+                    <li><b>description</b></li>
+                </ul>
+            </li>
+            <li>Second data set is IMDB Movies. from that I will use the columns
+                <ul>
+                    <li><b>title</b></li>
+                    <li><b>year</b></li>
+                    <li><b>date_published</b></li>
+                    <li><b>genre</b></li>
+                    <li><b>duration</b></li>
+                    <li><b>director</b></li>
+                    <li><b>actors</b></li>
+                    <li><b>description</b></li>
+                    <li><b>avg_vote</b></li>
+                    <li><b>votes</b></li>
+                </ul>
+            </li>
+            <li>The third data set will be a list of users created with Faker. It will have
+                <ul>
+                    <li><b>name</b></li>
+                    <li><b>age</b></li>
+                    <li><b>watched_movies</b></li>
+                    <li><b>watched_netflix</b></li>
+                </ul>
+            </li>
+            <li>The database tables will be
+                <ul>
+                    <li><b>NetflixTitles</b> -- This will be defined with the Netflix Titles dataset. There will be a <b>"genre"</b> column extracted from <b>"listed_in"</b> dataset column. <b>"genre"</b> <b>"director"</b> and <b>"actor"</b> will be a many to many relationship.</li>
+                    <li><b>Type</b> -- This is the type of title from netflix (example "Movie", "Show"). It has a one to many relationship with <b>"NetflixTitles"</b> one title can have only one type, but a type can have many titles.</li>
+                    <li><b>Movies</b> -- This will be defined with the IMDB Movies dataset. <b>"genre"</b> <b>"director"</b> and <b>"actor"</b> will be a many to many relationship.</li>
+                    <li><b>Genre</b> -- This will be populated from both datasets, and have a many to many relationship to both <b>"NetflixTitles"</b> and <b>"Movies"</b></li>
+                    <li><b>Directors</b> -- This will be populated from both datasets, and have a many to many relationship to both <b>"NetflixTitles"</b> and <b>"Movies"</b></li>
+                    <li><b>Actors</b> -- This will be populated from both datasets, and have a many to many relationship to both <b>"NetflixTitles"</b> and <b>"Movies"</b></li>
+                    <li><b>Users</b> -- This will be populated using faker to create a list of users, each with their own list of <b>"watched_movies"</b> <b>"watched_netflix"</b>. Those will be a many to many relationship to their respective tables.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
 
 <div style="display: block; text-align: center; margin: 1rem;">
     <h2>Database ERD</h2>
-    <img src="/images/MyMoviesERD.png" alt="ERD Image">
+    <img src="/images/MyMoviesERD.png" alt="ERD Image" style="margin-top: 1rem;" />
 </div>
