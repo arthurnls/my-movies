@@ -11,11 +11,11 @@ class NetflixTitle < ApplicationRecord
   has_many :genres, through: :netflix_title_genres
 
   # Many to Many Relationship to Directors table
-  # has_many :netflix_title_directors
+  has_many :netflix_title_directors
   has_many :directors, through: :netflix_title_directors
 
   # Many to Many Relationship to Actors table
-  # has_many :netflix_title_actors
+  has_many :netflix_title_actors
   has_many :actors, through: :netflix_title_actors
 
   # Validation

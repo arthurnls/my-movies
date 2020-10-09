@@ -1,2 +1,48 @@
-<h1>NetflixTitles#show</h1>
-<p>Find me in app/views/netflix_titles/show.html.erb</p>
+<h2><%= @netflix_title.title %></h2>
+<p><%= @netflix_title.description %></p>
+<ul>
+    <li><b>Type:</b> <%= @netflix_title.type.name %></li>
+    <li><b>Release Year:</b> <%= @netflix_title.release_year %></li>
+    <li><b>Date Added:</b> <%= @netflix_title.date_added %></li>
+    <li><b>Duration:</b> <%= @netflix_title.duration %></li>
+    <li><b>Averate Rating:</b> <%= @netflix_title.rating %></li>
+    
+    <li><b>Genres:</b>
+        <ul>
+    <% if @netflix_title.genres.count > 0 %>
+        <% @netflix_title.genres.each do |genre| %>
+            <li><%= link_to genre.name, genre %></li>
+        <% end %>
+    <% else %>
+        <li>This movie has no Genres</li>
+    <% end %>
+        </ul>
+    </li>
+    
+    <li><b>Directors:</b>
+        <ul>
+    <% if @netflix_title.directors.count > 0 %>
+        <% @netflix_title.directors.each do |director| %>
+            <li><%= link_to director.name, director %></li>
+        <% end %>
+    <% else %>
+        <li>This movie has no Directors</li>
+    <% end %>
+        </ul>
+    </li>
+    
+    <li><b>Actors:</b>
+        <ul>
+    <% if @netflix_title.actors.count > 0 %>
+        <% @netflix_title.actors.each do |actor| %>
+            <li><%= link_to actor.name, actor %></li>
+        <% end %>
+    <% else %>
+        <li>This movie has no Actors</li>
+    <% end %>
+        </ul>
+    </li>
+    
+</ul>
+
+<%= link_to "&laquo; Back".html_safe, "javascript:history.back()", class: "btn btn-primary" %>

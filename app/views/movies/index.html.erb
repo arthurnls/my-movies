@@ -1,2 +1,19 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<h2>IMDB Movies</h2>
+<p>IMDB Movies has a total of:</p>
+<ul>
+    <li>Genres: <%= @total_genres %></li>
+    <li>Actors: <%= @total_actors %></li>
+    <li>Directors: <%= @total_directors %></li>
+</ul>
+<p>A total of <%= @total_users %> users have watched at least one IMDB Movie.</p>
+<p>List of all IMDB Movies in My Movies Web App database</p>
+
+<% if @movies.empty? %>
+    <p>There are no movies registered.</p>
+<% else %>
+    <ul class="list-group list-inline">
+        <% @movies.each do |movie| %>
+            <li class="list-group-item list-inline-item"><%= link_to movie.title, movie %></li>
+        <% end %>
+    </ul>
+<% end %>

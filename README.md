@@ -108,9 +108,9 @@ Created 373 Movies
 - Added implementation details in about page
 - Added database ERD image
 
-### 2.2. []	Menu
+### 2.2. [x]	Menu
 
-- There is a menu present on all pages that includes links to two or more locations. (For example, a menu with a link to your homepage and your about page.)
+- Menu to all models index pages.
 
 ### 3.1. []	Collection Navigation
 

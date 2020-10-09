@@ -1,2 +1,47 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<h2><%= @movie.title %></h2>
+<p><%= @movie.description %></p>
+<ul>
+    <li><b>Released in:</b> <%= @movie.release_date %></li>
+    <li><b>Duration:</b> <%= @movie.duration %></li>
+    <li><b>Total Votes:</b> <%= @movie.votes %></li>
+    <li><b>Averate Rating:</b> <%= @movie.average_vote %></li>
+    
+    <li><b>Genres:</b>
+        <ul>
+    <% if @movie.genres.count > 0 %>
+        <% @movie.genres.each do |genre| %>
+            <li><%= link_to genre.name, genre %></li>
+        <% end %>
+    <% else %>
+        <li>This movie has no Genres</li>
+    <% end %>
+        </ul>
+    </li>
+    
+    <li><b>Directors:</b>
+        <ul>
+    <% if @movie.directors.count > 0 %>
+        <% @movie.directors.each do |director| %>
+            <li><%= link_to director.name, director %></li>
+        <% end %>
+    <% else %>
+        <li>This movie has no Directors</li>
+    <% end %>
+        </ul>
+    </li>
+    
+    <li><b>Actors:</b>
+        <ul>
+    <% if @movie.actors.count > 0 %>
+        <% @movie.actors.each do |actor| %>
+            <li><%= link_to actor.name, actor %></li>
+        <% end %>
+    <% else %>
+        <li>This movie has no Actors</li>
+    <% end %>
+        </ul>
+    </li>
+    
+</ul>
+
+<%= link_to "&laquo; Back".html_safe, "javascript:history.back()", class: "btn btn-primary" %>
