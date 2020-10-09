@@ -2,9 +2,33 @@
 <ul>
     <li>Full Name: <%= @user.name %></li>
     <li>Age: <%= @user.age %></li>
-    <li><%= @user_first_name %> has watched <%= @movies.count %> movies from IMDB.</li>
-    <li><%= @user_first_name %> has watched <%= @netflix_type0.count %> <%= @netflix_type0.name %> on Netflix.</li>
-    <li><%= @user_first_name %> has watched <%= @netflix_type1.count %> <%= @netflix_type1.name %> on Netflix.</li>
+    <li><%= @user_first_name %> has watched <%= @movies.count %> movies from IMDB.
+    <% if @movies.count > 0 %>
+        <ul>
+            <% @movies.each do |movie| %>
+                <li><%= link_to movie.title, movie %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    </li>
+    <li><%= @user_first_name %> has watched <%= @netflix_type0.count %> <%= @types[0].name %>s on Netflix.
+    <% if @netflix_type0.count > 0 %>
+        <ul>
+            <% @netflix_type0.each do |netflix_title| %>
+                <li><%= link_to netflix_title.title, netflix_title %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    </li>
+    <li><%= @user_first_name %> has watched <%= @netflix_type1.count %> <%= @types[1].name %>s on Netflix.
+    <% if @netflix_type1.count > 0 %>
+        <ul>
+            <% @netflix_type1.each do |netflix_title| %>
+                <li><%= link_to netflix_title.title, netflix_title %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    </li>
 </ul>
 
 <%= link_to "&laquo; Back".html_safe, "javascript:history.back()", class: "btn btn-primary" %>

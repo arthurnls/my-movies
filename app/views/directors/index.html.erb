@@ -1,2 +1,12 @@
-<h1>Directors#index</h1>
-<p>Find me in app/views/directors/index.html.erb</p>
+<h2>Directors</h2>
+<p>List of all directors in My Movies Web App database</p>
+
+<% if @directors.empty? %>
+    <p>There are no directors registered.</p>
+<% else %>
+    <ul class="list-group list-inline">
+        <% @directors.each do |director| %>
+            <li class="list-group-item list-inline-item"><%= link_to director.name, director %></li>
+        <% end %>
+    </ul>
+<% end %>

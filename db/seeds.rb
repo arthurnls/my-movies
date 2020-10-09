@@ -186,13 +186,26 @@ end
 ###############################################
 ###############################################
 # Generate users table
+allNetflixTitles = NetflixTitle.all
+tot_net = allNetflixTitles.count - 1
+allMovies = Movie.all
+tot_mov = allMovies.count - 1
 
 TOTAL_USERS.times do
   user_name = Faker::Name.unique.name
   user_age = Faker::Number.within(range: 15..80)
   user = User.create(name: user_name, age: user_age)
-  user.netflix_titles << NetflixTitle.first
-  user.movies << Movie.first
+  # Randomize the number of movies and titles a user has watched
+  my_mov_count = rand(0..10)
+  my_mov_count.times do
+    index = rand(0..tot_net)
+    user.netflix_titles << allNetflixTitles[index]
+  end
+  my_mov_count = rand(0..10)
+  my_mov_count.times do
+    index = rand(0..tot_mov)
+    user.movies << allMovies[index]
+  end
 end
 
 ###############################################
