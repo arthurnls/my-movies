@@ -1,2 +1,12 @@
-<h1>Actors#index</h1>
-<p>Find me in app/views/actors/index.html.erb</p>
+<h2>Actors</h2>
+<p>List of all actors in My Movies Web App database</p>
+
+<% if @actors.empty? %>
+    <p>There are no actors registered.</p>
+<% else %>
+    <ul class="list-group list-inline">
+        <% @actors.each do |actor| %>
+            <li class="list-group-item list-inline-item"><%= link_to actor.name, actor %></li>
+        <% end %>
+    </ul>
+<% end %>

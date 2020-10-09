@@ -1,2 +1,12 @@
-<h1>Types#show</h1>
-<p>Find me in app/views/types/show.html.erb</p>
+<h2>Netflix <%= @type.name %>'s Page</h2>
+
+<p>My Movies has <%= @type.netflix_titles.count %> <%= @type.name %>s on Netflix.</p>
+<% if @type.netflix_titles.count > 0 %>
+    <ul>
+        <% @type.netflix_titles.each do |netflix_title| %>
+            <li><%= link_to netflix_title.title, netflix_title %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= link_to "&laquo; Back".html_safe, "javascript:history.back()", class: "btn btn-primary" %>

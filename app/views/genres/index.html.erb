@@ -1,2 +1,12 @@
-<h1>Genres#index</h1>
-<p>Find me in app/views/genres/index.html.erb</p>
+<h2>Genres</h2>
+<p>List of all Genres in My Movies Web App database</p>
+
+<% if @genres.empty? %>
+    <p>There are no genres registered.</p>
+<% else %>
+    <ul class="list-group list-inline">
+        <% @genres.each do |genre| %>
+            <li class="list-group-item list-inline-item"><%= link_to genre.name, genre %></li>
+        <% end %>
+    </ul>
+<% end %>

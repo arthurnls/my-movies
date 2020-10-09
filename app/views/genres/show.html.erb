@@ -1,2 +1,32 @@
-<h1>Genres#show</h1>
-<p>Find me in app/views/genres/show.html.erb</p>
+<h2><%= @genre.name %>'s Page</h2>
+<ul>
+    <li><%= @genre.name %> has <%= @movies.count %> movies on IMDB.
+    <% if @movies.count > 0 %>
+        <ul>
+            <% @movies.each do |movie| %>
+                <li><%= link_to movie.title, movie %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    </li>
+    <li><%= @genre.name %> has <%= @netflix_type0.count %> <%= @types[0].name %>s on Netflix.
+    <% if @netflix_type0.count > 0 %>
+        <ul>
+            <% @netflix_type0.each do |netflix_title| %>
+                <li><%= link_to netflix_title.title, netflix_title %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    </li>
+    <li><%= @genre.name %> has <%= @netflix_type1.count %> <%= @types[1].name %>s on Netflix.
+    <% if @netflix_type1.count > 0 %>
+        <ul>
+            <% @netflix_type1.each do |netflix_title| %>
+                <li><%= link_to netflix_title.title, netflix_title %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    </li>
+</ul>
+
+<%= link_to "&laquo; Back".html_safe, "javascript:history.back()", class: "btn btn-primary" %>
