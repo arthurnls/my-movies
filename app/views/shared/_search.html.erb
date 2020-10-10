@@ -1,5 +1,12 @@
-<form class="form-inline mt-2 mt-md-0" action="/search" accept-charset="UTF-8" method="get"><input name="utf8"
-        type="hidden" value="&#x2713;" />
+<%= form_with(url: search_path, local: true, method: "get", class: "form-inline mt-2 mt-md-0") do %>
+    <%= text_field_tag(:search_term, nil, placeholder: "Movies Search", class: "form-control mr-sm-2") %>
+    <%= submit_tag("Search", class: "btn btn-outline-success my-2 my-sm-0") %>
+    <%=%>
+<% end %>
+
+
+<%# <form class="form-inline mt-2 mt-md-0" action="/search" accept-charset="UTF-8" method="get">
+    <input name="utf8" type="hidden" value="&#x2713;" />
     <input type="text" name="q" id="q" class="form-control mr-sm-2" placeholder="Movies Search" />
     <select name="category" id="category" class="form-control mr-sm-2">
         <option value="0">All Genres</option>
@@ -88,5 +95,5 @@
         <option value="54">World War II</option>
         <option value="44">Zombies</option>
     </select>
-    <input type="submit" name="commit" value="Search" class="btn btn-outline-success my-2 my-sm-0"
-        data-disable-with="Search" />
+    <input type="submit" name="commit" value="Search" class="btn btn-outline-success my-2 my-sm-0" data-disable-with="Search" />
+</form> %>
