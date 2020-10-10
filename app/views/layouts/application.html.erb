@@ -11,42 +11,7 @@
 
   <body>
       <header>
-        <nav class="navbar navbar-expand-xl navbar-dark bg-dark fixed-top">
-          <%= link_to "My Movies", root_path, class: "navbar-brand" %>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-
-          <div class="collapse navbar-collapse"  id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item <%= 'active' if current_page? controller: :users, action: :index %>">
-                <%= link_to "Users", users_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item <%= 'active' if current_page? controller: :movies, action: :index %>">
-                <%= link_to "IMDB Movies", movies_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item <%= 'active' if current_page? controller: :netflix_titles, action: :index %>">
-                <%= link_to "Netflix Titles", netflix_titles_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item <%= 'active' if current_page? controller: :types, action: :index %>">
-                <%= link_to "Types", types_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item <%= 'active' if current_page? controller: :genres, action: :index %>">
-                <%= link_to "Genres", genres_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item <%= 'active' if current_page? controller: :actors, action: :index %>">
-                <%= link_to "Actors", actors_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item <%= 'active' if current_page? controller: :directors, action: :index %>">
-                <%= link_to "Directors", directors_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item <%= 'active' if current_page? controller: :pages, action: :about %>">
-                <%= link_to "About", about_path, class: "nav-link" %>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <%= render partial: "shared/navigation_bar" %>
       </header>
     <div class="container">
       <section>
