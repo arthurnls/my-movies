@@ -145,13 +145,15 @@ rails g controller pages home about
 
 ### 3.6. []	Mapping
 
-### 4.1. []	Simple Search
+### 4.1. [x]	Simple Search
 
 - Users can use a simple form to perform a text search through the available data.
+- Searchable by title
 
-### 4.2. []	Hierarchical Search
+### 4.2. [x]	Hierarchical Search
 
 -  A user’s search can be restricted to a specific category (or other one-to-many / many-to-many relationship) using a dropdown within the search form.
+- Searchable by title and Genre
 
 ### 5.1. [x] Valid HTML
 
@@ -163,7 +165,7 @@ rails g controller pages home about
 
 ### 6.1. []	Git and Github
 
-### 6.2. []	20 Commits
+### 6.2. [x]	20 Commits
 
 --- 
 

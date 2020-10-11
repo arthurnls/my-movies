@@ -1,7 +1,13 @@
 <h2>Search Results</h2>
-<p>The search of <strong><%= @searched_term %></strong> resulted in <%= @total %> titles found.</p>
 
-<small>Jump to: <a href="#movies"><%= @types[1].name %>s</a> || <a href="#type0"><%= @types[0].name %>s</a> | <a href="#type1"><%= @types[1].name %>s</a></small>
+<% if @searched_genre.nil? %>
+    <p>The search of Term <strong>"<%= @searched_term %>"</strong> resulted in <%= @total %> titles found.</p>
+<% else %>
+    <p>The search of Term <strong>"<%= @searched_term %>"</strong>, Genre <strong>"<%= @searched_genre.name %>"</strong> resulted in <%= @total %> titles found.</p>
+<% end %>
+
+<% if @total > 0 %>
+<small>Jump to: <a href="#movies"><%= @types[1].name %>s</a> || <a href="#type0"><%= @types[0].name %>s</a> || <a href="#type1"><%= @types[1].name %>s</a></small>
 <ul class="list-group list-inline">
     <li>
         <span id="movies" style="position:relative; top: -50px;" ></span>
@@ -45,9 +51,6 @@
         <% end %>
     </li>
 </ul>
-
-
-
-
-
-
+<% end %>
+<hr />
+<%= link_to "&laquo; Back".html_safe, "javascript:history.back()", class: "btn btn-primary" %>

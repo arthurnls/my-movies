@@ -1,0 +1,7 @@
+<%= form_with(url: search_path, local: true, method: "get", class: "form-inline mt-2 mt-md-0") do %>
+    <%= text_field_tag(:search_term, nil, placeholder: "Movies Search", class: "form-control mr-sm-2") %>
+    <%= collection_select :genre, :id, Genre.all.order('name ASC'), :id, :name,{include_blank: 'Select Category'}, { :class => 'form-control mr-sm-2'} %>
+    <%= submit_tag("Search", class: "btn btn-outline-success my-2 my-sm-0") %>
+    <%=%>
+<% end %>
+
